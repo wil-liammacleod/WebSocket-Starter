@@ -10,7 +10,7 @@ let secondInputEvent = undefined
 let workingDir=credentials.workingDir
 let wsURL = credentials.wsURL
 let clientIDclientSecret = credentials.developer
-let bboxInput = credentials.bbox
+let assetUIDInput = credentials.assetUID
 
 process.argv.forEach((val, index) => {
   if (index == 2) {
@@ -49,8 +49,8 @@ async function listen() {
   ws.on('open', function open() {
     var date = new Date()
     fs.appendFile(logFile,'\n\nOpening New Connection: '+date,function(err){if (err) throw err;}) 
-    fs.appendFile(logFile,'\n\nPayload: '+JSON.stringify({bbox:bboxInput,eventTypes:inputEvent}),function(err){if (err) throw err;})  
-    ws.send(JSON.stringify({bbox:bboxInput,eventTypes:inputEvent}));
+    fs.appendFile(logFile,'\n\nPayload: '+JSON.stringify({assetUID:assetUIDInput,eventTypes:inputEvent}),function(err){if (err) throw err;})  
+    ws.send(JSON.stringify({assetUID:assetUIDInput,eventTypes:inputEvent}));
   })
   // when a message is returned send to the outputFile 
   ws.on('message', data => {
