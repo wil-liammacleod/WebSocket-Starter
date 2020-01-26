@@ -9,6 +9,7 @@ fs node-fetch and ws
 
 ```
 $ node websocket.js [Predix-Zone-ID] [eventType] [secondEventType]
+$ node websocket.js HAMILTON-IE-TRAFFIC TFEVT 
 ```
 
 Note: [secondEventType] is optional and only functional for the Parking API and Environmental API
